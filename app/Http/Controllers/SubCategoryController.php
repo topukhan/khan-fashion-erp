@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductSubCategory;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
-class ProductSubCategoryController extends Controller
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProductSubCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductSubCategory $productSubCategory)
+    public function show(SubCategory $subCategory)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProductSubCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductSubCategory $productSubCategory)
+    public function edit(SubCategory $subCategory)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProductSubCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProductSubCategory $productSubCategory)
+    public function update(Request $request, SubCategory $subCategory)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProductSubCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductSubCategory $productSubCategory)
+    public function destroy(SubCategory $subCategory)
     {
         //
     }

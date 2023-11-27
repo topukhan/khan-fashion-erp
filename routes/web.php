@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +23,10 @@ Route::get('/', function () {
 });
 
 // Route::middleware(['auth', 'verified'])->group(function(){
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::view('/', 'homePage')->name('dashboard');
+    // Product Category Controller
+    Route::resource('products/categories', CategoryController::class);
+    Route::resource('products/subCategories', SubCategoryController::class);
     
 // });
 
