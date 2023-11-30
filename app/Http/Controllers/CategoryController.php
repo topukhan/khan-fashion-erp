@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
+use function Ramsey\Uuid\v1;
+
 class CategoryController extends Controller
 {
     /**
@@ -21,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.categories.create');
     }
 
     /**
@@ -29,7 +31,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->dd()
+        $validated = $request->validate([
+            'name' => 'string | unique:categories',
+            'description' => 'max:255'
+        ]);
+
+        try {
+            Category::create($validated);
+            return redirect()->route('categories.create')->with('message', 'Category created successfully');
+        } catch (\Throwable $th) {
+            return redirect()->back()->withInput()->with('error', $th);
+        }
     }
 
     /**
@@ -37,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('products.categories.show', compact('category'));
     }
 
     /**
@@ -45,7 +58,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('products.categories.edit', compact('category'));
     }
 
     /**
@@ -53,7 +66,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'string|unique:categories,name,' . $category->id,
+            'description' => 'max:255'
+        ]);
+
+        try {
+            $category->update($validated);
+
+            return redirect()->route('categories.edit', $category->id)->with('message', 'Category updated successfully');
+        } catch (\Throwable $th) {
+            return redirect()->back()->withInput()->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -61,6 +85,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        
+        $category->delete();
+        return redirect()->route('categories.index')->withMessage("Category Deleted!");
     }
 }
