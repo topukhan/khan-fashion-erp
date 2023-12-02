@@ -16,11 +16,11 @@
             <i class="fa-solid fa-list" style="color: #eaecf0;"></i>
             <p class="text-base leading-4 ">Category</p>
         </a>
-        <button
+        <a href="{{ route('sizes.index')}}"
             class="flex jusitfy-start mb-3 items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
             <i class="fa-solid fa-layer-group" style="color: #e9ecf1;"></i>
-            <p class="text-base leading-4 ">Sub Category</p>
-        </button>
+            <p class="text-base leading-4 ">Size</p>
+        </a>
     </div>
     {{-- Each items in aside --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">

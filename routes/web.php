@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Product\CategoryController;
+use App\Http\Controllers\Product\SizeController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubCategoryController;
@@ -23,12 +24,13 @@ Route::get('/', function () {
 });
 
 // Route::middleware(['auth', 'verified'])->group(function(){
-    Route::view('/', 'homePage')->name('dashboard');
-    // Product Category Controller
-    Route::resource('products/categories', CategoryController::class);
-    Route::resource('products/subCategories', SubCategoryController::class);
-    
 // });
+Route::view('/', 'homePage')->name('dashboard');
+// Product Category 
+Route::resource('products/categories', CategoryController::class);
+// Product Size
+Route::resource('products/sizes', SizeController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,4 +38,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
