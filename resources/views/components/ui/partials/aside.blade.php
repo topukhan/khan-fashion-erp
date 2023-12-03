@@ -10,16 +10,21 @@
             <p class="text-2xl px-1 ml-1 leading-6 text-white inline">Khan Fashion</p>
         </a>
     </div>
-    <div class="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
+    <div class="mt-6 flex flex-col justify-start items-center pl-4 w-full border-gray-600 border-b space-y-4 pb-5 ">
         <a href="{{ route('categories.index')}}"
-            class="flex jusitfy-start mb-3 items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
+            class="flex jusitfy-start  items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
             <i class="fa-solid fa-list" style="color: #eaecf0;"></i>
             <p class="text-base leading-4 ">Category</p>
         </a>
         <a href="{{ route('sizes.index')}}"
-            class="flex jusitfy-start mb-3 items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
+            class="flex jusitfy-start  items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
             <i class="fa-solid fa-layer-group" style="color: #e9ecf1;"></i>
             <p class="text-base leading-4 ">Size</p>
+        </a>
+        <a href="{{ route('colors.index')}}"
+            class="flex jusitfy-start  items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
+            <i class="fa-solid fa-palette" style="color: #f9fafa;"></i>
+            <p class="text-base leading-4 ">Color</p>
         </a>
     </div>
     {{-- Each items in aside --}}

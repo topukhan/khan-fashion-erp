@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Product\CategoryController;
+use App\Http\Controllers\Product\ColorController;
 use App\Http\Controllers\Product\SizeController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProfileController;
@@ -30,6 +31,8 @@ Route::view('/', 'homePage')->name('dashboard');
 Route::resource('products/categories', CategoryController::class);
 // Product Size
 Route::resource('products/sizes', SizeController::class);
+// Product Color
+Route::resource('products/colors', ColorController::class);
 
 
 Route::middleware('auth')->group(function () {

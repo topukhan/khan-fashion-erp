@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
         try {
             Category::create($validated);
-            return redirect()->route('categories.create')->with('message', 'Category created successfully');
+            return redirect()->route('categories.index')->with('message', 'Category created successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->withInput()->with('error', $th);
         }
@@ -74,7 +74,7 @@ class CategoryController extends Controller
         try {
             $category->update($validated);
 
-            return redirect()->route('categories.edit', $category->id)->with('message', 'Category updated successfully');
+            return redirect()->route('categories.index', $category->id)->with('message', 'Category updated successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->withInput()->with('error', $th->getMessage());
         }

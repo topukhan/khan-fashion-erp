@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Models\Size;
+use App\Models\Color;
 use Illuminate\Http\Request;
 
-class SizeController extends Controller
+class ColorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $sizes = Size::all();
-        return view('products.sizes.index', compact('sizes'));
+        $colors = Color::all();
+        return view('products.colors.index', compact('colors'));
     }
 
     /**
@@ -22,7 +22,7 @@ class SizeController extends Controller
      */
     public function create()
     {
-        return view('products.sizes.create');
+        return view('products.colors.create');
     }
 
     /**
@@ -31,12 +31,12 @@ class SizeController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'string | unique:sizes',
+            'name' => 'string | unique:colors',
         ]);
 
         try {
-            Size::create($validated);
-            return redirect()->route('sizes.index')->with('message', 'Size created successfully');
+            Color::create($validated);
+            return redirect()->route('colors.index')->with('message', 'Color created successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->withInput()->with('error', $th);
         }
@@ -45,32 +45,32 @@ class SizeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Size $size)
+    public function show(Color $color)
     {
-        return view('products.sizes.show', compact('size'));
+        return view('products.colors.show', compact('color'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Size $size)
+    public function edit(Color $color)
     {
-        return view('products.sizes.edit', compact('size'));
+        return view('products.colors.edit', compact('color'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Size $size)
+    public function update(Request $request, Color $color)
     {
         $validated = $request->validate([
-            'name' => 'string|unique:sizes,name,' . $size->id,
+            'name' => 'string|unique:colors,name,' . $color->id,
         ]);
 
         try {
-            $size->update($validated);
+            $color->update($validated);
 
-            return redirect()->route('sizes.index', $size->id)->with('message', 'Size updated successfully');
+            return redirect()->route('colors.index', $color->id)->with('message', 'Color updated successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->withInput()->with('error', $th->getMessage());
         }
@@ -79,10 +79,10 @@ class SizeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Size $size)
+    public function destroy(Color $color)
     {
         
-        $size->delete();
-        return redirect()->route('sizes.index')->withMessage("Size Deleted!");
+        $color->delete();
+        return redirect()->route('colors.index')->withMessage("Color Deleted!");
     }
 }
