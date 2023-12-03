@@ -4,9 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Product\CategoryController;
 use App\Http\Controllers\Product\ColorController;
 use App\Http\Controllers\Product\SizeController;
-use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\Product\TypeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +32,8 @@ Route::resource('products/categories', CategoryController::class);
 Route::resource('products/sizes', SizeController::class);
 // Product Color
 Route::resource('products/colors', ColorController::class);
+// Product Type
+Route::resource('products/types', TypeController::class);
 
 
 Route::middleware('auth')->group(function () {

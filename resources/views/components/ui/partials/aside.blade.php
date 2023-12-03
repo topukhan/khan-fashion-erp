@@ -11,20 +11,25 @@
         </a>
     </div>
     <div class="mt-6 flex flex-col justify-start items-center pl-4 w-full border-gray-600 border-b space-y-4 pb-5 ">
-        <a href="{{ route('categories.index')}}"
+        <a href="{{ route('categories.index') }}"
             class="flex jusitfy-start  items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
             <i class="fa-solid fa-list" style="color: #eaecf0;"></i>
             <p class="text-base leading-4 ">Category</p>
         </a>
-        <a href="{{ route('sizes.index')}}"
+        <a href="{{ route('sizes.index') }}"
             class="flex jusitfy-start  items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
             <i class="fa-solid fa-layer-group" style="color: #e9ecf1;"></i>
             <p class="text-base leading-4 ">Size</p>
         </a>
-        <a href="{{ route('colors.index')}}"
+        <a href="{{ route('colors.index') }}"
             class="flex jusitfy-start  items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
             <i class="fa-solid fa-palette" style="color: #f9fafa;"></i>
             <p class="text-base leading-4 ">Color</p>
+        </a>
+        <a href="{{ route('types.index') }}"
+            class="flex jusitfy-start  items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
+            <i class="fa-solid fa-object-ungroup" style="color: #eff1f5;"></i>
+            <p class="text-base leading-4 ">Type</p>
         </a>
     </div>
     {{-- Each items in aside --}}
@@ -137,7 +142,7 @@
     <div class=" flex justify-between items-center w-full fixed bottom-2 left-0 px-1">
         <div class="flex justify-center items-center  space-x-2">
             <div>
-                <img class="rounded-full" src="https://avatars.githubusercontent.com/u/98571259?s=64&v=4"
+                <img class="rounded-full" src="{{asset('ui/images/avatar.jfif')}}"
                     alt="avatar" />
             </div>
             <div class="flex justify-start flex-col items-start">
