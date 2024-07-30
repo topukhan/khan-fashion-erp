@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Product\CategoryController;
 use App\Http\Controllers\Product\ColorController;
+use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\SizeController;
 use App\Http\Controllers\Product\TypeController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,8 @@ Route::resource('products/sizes', SizeController::class);
 Route::resource('products/colors', ColorController::class);
 // Product Type
 Route::resource('products/types', TypeController::class);
+// Product Controller
+Route::resource('products', ProductController::class);
 
 
 Route::middleware('auth')->group(function () {

@@ -31,6 +31,11 @@
             <i class="fa-solid fa-object-ungroup" style="color: #eff1f5;"></i>
             <p class="text-base leading-4 ">Type</p>
         </a>
+        <a href="{{ route('products.index') }}"
+            class="flex jusitfy-start  items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
+            <i class="fa-solid fa-shirt" style="color: #eff1f5;"></i>
+            <p class="text-base leading-4 ">Product</p>
+        </a>
     </div>
     {{-- Each items in aside --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
